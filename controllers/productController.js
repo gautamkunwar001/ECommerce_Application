@@ -8,7 +8,7 @@
 
 // dotenv.config();
 
-// // payment gateway
+// payment gateway
 // var gateway = new braintree.BraintreeGateway({
 //     environment: braintree.Environment.Sandbox,
 //     merchantId: process.env.BRAINTREE_MERCHANT_ID,
@@ -16,26 +16,24 @@
 //     privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 //   });
 
-
-
 // export const createProductController = async(req,res) => {
 //     try {
 //         const {name,description,price,category,quantity,shipping} = req.fields;
 //         const { photo } = req.files;
 
-//         // validation 
+//         // validation
 //         switch(true) {
-//             case !name: 
+//             case !name:
 //             return res.status(500).send({ error: "name is required"});
-//             case !description: 
+//             case !description:
 //             return res.status(500).send({ error: "description is required"});
-//             case !price: 
+//             case !price:
 //             return res.status(500).send({ error: "price is required"});
-//             case !category: 
+//             case !category:
 //             return res.status(500).send({ error: "category is required"});
-//             case !quantity: 
+//             case !quantity:
 //             return res.status(500).send({ error: "quantity is required"});
-//              case photo && photo.size > 1000000: 
+//              case photo && photo.size > 1000000:
 //             return res.status(500)
 //             .send({ error: "photo is required & should be less than 1mb"});
 //         }
@@ -52,7 +50,7 @@
 //             message: "Product Created Successfully",
 //             products,
 //         })
-//     } 
+//     }
 //     catch(error) {
 //         res.status(500).send({
 //             success: false,
@@ -76,7 +74,7 @@
 //             count_total: products.length,
 //             message: "AllProducts",
 //             products,
-           
+
 //         })
 //     }
 //      catch (error) {
@@ -119,7 +117,7 @@
 //             res.set("Contnt-type", product.photo.contentType);
 //             return res.status(200).send(product.photo.data);
 //         }
-//     } 
+//     }
 //     catch(error) {
 //         console.log(error);
 //         res.status(500).send({
@@ -137,8 +135,8 @@
 //     res.status(200).send ({
 //         success: true,
 //         message: "Product Deleted successfully",
-//     }); 
-// } 
+//     });
+// }
 // catch(error) {
 //     console.log(error);
 //     res.status(500).send({
@@ -155,19 +153,19 @@
 //         const {name,description,price,category,quantity,shipping} = req.fields;
 //         const { photo } = req.files;
 
-//         // validation 
+//         // validation
 //         switch(true) {
-//             case !name: 
+//             case !name:
 //             return res.status(500).send({ error: "name is required"});
-//             case !description: 
+//             case !description:
 //             return res.status(500).send({ error: "description is required"});
-//             case !price: 
+//             case !price:
 //             return res.status(500).send({ error: "price is required"});
-//             case !category: 
+//             case !category:
 //             return res.status(500).send({ error: "category is required"});
-//             case !quantity: 
+//             case !quantity:
 //             return res.status(500).send({ error: "quantity is required"});
-//              case photo && photo.size > 1000000: 
+//              case photo && photo.size > 1000000:
 //             return res.status(500)
 //             .send({ error: "photo is required & should be less than 1mb"});
 //         }
@@ -186,23 +184,23 @@
 //             message: "Product updated Successfully",
 //             products,
 //         })
-//     } 
+//     }
 //     catch(error) {
 //         res.status(500).send({
 //             success: false,
 //             error,
 //             message: "error in updating product",
-//         }) 
-//     } 
+//         })
+//     }
 // }
-// // filters 
+// // filters
 // export const productFiltersController = async (req,res) =>{
 //     try {
 //         const {checked  , radio } = req.body;
 //         let args = {};
 //         console.log("Filtering Params:", { checked, radio });
 //         if(checked.length > 0 )  {
-//             args.category = checked ; 
+//             args.category = checked ;
 //         }
 //         // if (checked.length > 0) {
 //         //     args.category = { $in: checked.map((id) => new mongoose.Types.ObjectId(id)) };
@@ -210,7 +208,7 @@
 
 //         if(radio.length )  {
 //             args.price = { $gte: radio[0], $lte: radio[1] };
-//         } 
+//         }
 
 //         const products = await productModel.find(args);
 
@@ -262,7 +260,7 @@
 //             success: true,
 //             products,
 //         });
-//     } 
+//     }
 //     catch(error) {
 //     console.log(error);
 //     res.status(400).send({
@@ -273,7 +271,7 @@
 //     }
 // }
 
-// //  search product 
+// //  search product
 // export const searchProductController = async (req,res) => {
 //  try {
 // const {keyword} = req.params;
@@ -283,14 +281,14 @@
 //                 {
 //                     name: { $regex: keyword, $options: "i" }
 //                 },
-//                 { 
+//                 {
 //                     description: { $regex: keyword, $options: "i" }
 //                 },
 //             ],
 //          })
 //         .select("-photo");
 //         res.json(results);
-//  } 
+//  }
 //  catch(error) {
 //     console.log(error);
 //     res.status(400).send({
@@ -314,7 +312,7 @@
 //             message: "error while getting related product",
 //             error,
 //         });
-//     } 
+//     }
 //     catch(error) {
 //         console.log(error);
 //         res.status(400).send({
@@ -325,7 +323,7 @@
 //     }
 // }
 
-// // get product by category 
+// // get product by category
 // export const productCategoryController = async(req,res) => {
 //     try {
 //         const category = await categoryModel.findOne({ slug: req.params.slug });
@@ -335,7 +333,7 @@
 //             category,
 //             products,
 //         });
-//     } 
+//     }
 //     catch (error) {
 //         console.log(error);
 //         res.status(400).send({
@@ -344,8 +342,7 @@
 //             error,
 //         })
 //     }
-// } 
-
+// }
 
 // // payment gateway ApI
 // // token
@@ -354,12 +351,12 @@
 //         gateway.clientToken.generate({}, function (err, response) {
 //             if(err) {
 //                res.status(500).send(err);
-//             } 
+//             }
 //             else {
 //                 res.send(response);
 //             }
 //         });
-//     } 
+//     }
 //     catch(error) {
 //         console.log(error);
 //     }
@@ -368,9 +365,9 @@
 // //  payments
 // export const braintreePaymentController = async(req, res) => {
 //     try {
-//         const { cart , nonce } = req.body;
+//         const { nonce , cart } = req.body;
 //         let total =0;
-//         cart.map( (i) => { 
+//         cart.map( (i) => {
 //             total += i.price;
 //         });
 //         let newTransaction = gateway.transaction.sale({
@@ -393,13 +390,12 @@
 //         }
 //     }
 //     )
-//      } 
+//      }
 //      catch(error) {
 //         console.log(error);
-     
+
 //      }
 // };
-
 
 import productModel from "../models/productModel.js";
 import categoryModel from "../models/categoryModel.js";
@@ -409,16 +405,23 @@ import fs from "fs";
 import slugify from "slugify";
 import braintree from "braintree";
 import dotenv from "dotenv";
-
+import Razorpay from "razorpay";
 dotenv.config();
 
 //payment gateway
-var gateway = new braintree.BraintreeGateway({
-  environment: braintree.Environment.Sandbox,
-  merchantId: process.env.BRAINTREE_MERCHANT_ID,
-  publicKey: process.env.BRAINTREE_PUBLIC_KEY,
-  privateKey: process.env.BRAINTREE_PRIVATE_KEY,
-});
+// var gateway = new braintree.BraintreeGateway({
+//   environment: braintree.Environment.Sandbox,
+//   merchantId: process.env.BRAINTREE_MERCHANT_ID,
+//   publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+//   privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+// });
+
+// var instance = new Razorpay({
+//   key_id: process.env.RAZORPAY_API_KEY,
+//   key_secret: process.env.RAZORPAY_API_SECRET,
+// });
+
+// instance.orders.all().then(console.log).catch(console.error);
 
 export const createProductController = async (req, res) => {
   try {
@@ -709,7 +712,7 @@ export const realtedProductController = async (req, res) => {
   }
 };
 
-// get prdocyst by catgory
+// get product by catgory
 export const productCategoryController = async (req, res) => {
   try {
     const category = await categoryModel.findOne({ slug: req.params.slug });
@@ -731,50 +734,104 @@ export const productCategoryController = async (req, res) => {
 
 //payment gateway api
 //token
-export const braintreeTokenController = async (req, res) => {
+// export const braintreeTokenController = async (req, res) => {
+//   try {
+//     gateway.clientToken.generate({}, function (err, response) {
+//       if (err) {
+//         res.status(500).send(err);
+//       } else {
+//         res.send(response);
+//       }
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+//payment
+// export const brainTreePaymentController = async (req, res) => {
+//   try {
+//     const { nonce, cart } = req.body;
+//     let total = 0;
+//     cart.map((i) => {
+//       total += i.price;
+//     });
+//     let newTransaction = gateway.transaction.sale(
+//       {
+//         amount: total,
+//         paymentMethodNonce: nonce,
+//         options: {
+//           submitForSettlement: true,
+//         },
+//       },
+//       function (error, result) {
+//         if (result) {
+//           const order = new orderModel({
+//             products: cart,
+//             payment: result,
+//             buyer: req.user._id,
+//           }).save();
+//           res.json({ ok: true });
+//         } else {
+//           res.status(500).send(error);
+//         }
+//       }
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// export const processPayment = async (req, res) => {
+//   const options = {
+//     amount: Number(req.body.amount * 100),
+//     currency: "INR",
+//   };
+
+//   const order = await instance.orders.create(options);
+//   res.status(200).json({
+//     success: true,
+//     order,
+//   });
+// };
+
+export const processPayment = async (req, res) => {
+  console.log("RAZORPAY_KEY_ID:", process.env.RAZORPAY_API_KEY);
+  console.log("RAZORPAY_SECRET:", process.env.RAZORPAY_API_SECRET);
+
   try {
-    gateway.clientToken.generate({}, function (err, response) {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.send(response);
-      }
+    const instance = new Razorpay({
+      key_id: process.env.RAZORPAY_API_KEY,
+      key_secret: process.env.RAZORPAY_API_SECRET,
+    });
+
+    const { amount } = req.body;
+
+    const options = {
+      amount: amount * 100, // Convert to paise
+      currency: "INR",
+      receipt: `receipt_${Date.now()}`,
+    };
+
+    const order = await instance.orders.create(options);
+
+    res.status(200).json({
+      success: true,
+      order_id: order.id,
+      amount: order.amount,
     });
   } catch (error) {
-    console.log(error);
+    console.error("Error in processPayment:", error);
+    res.status(500).json({
+      success: false,
+      message: "Razorpay order creation failed",
+    });
   }
 };
 
-//payment
-export const brainTreePaymentController = async (req, res) => {
-  try {
-    const { nonce, cart } = req.body;
-    let total = 0;
-    cart.map((i) => {
-      total += i.price;
-    });
-    let newTransaction = gateway.transaction.sale(
-      {
-        amount: total,
-        paymentMethodNonce: nonce,
-        options: {
-          submitForSettlement: true,
-        },
-      },
-      function (error, result) {
-        if (result) {
-          const order = new orderModel({
-            products: cart,
-            payment: result,
-            buyer: req.user._id,
-          }).save();
-          res.json({ ok: true });
-        } else {
-          res.status(500).send(error);
-        }
-      }
-    );
-  } catch (error) {
-    console.log(error);
-  }
+// access razorpay apikey so that use in our frontend
+export const getKey = async (req, res) => {
+  res.status(200).json({
+    key: process.env.RAZORPAY_API_KEY,
+  });
 };

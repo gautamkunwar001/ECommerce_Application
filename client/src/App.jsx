@@ -6,7 +6,7 @@ import Policies from "./pages/Policies";
 import Pagenotfound from "./pages/Pagenotfound";
 import Signup from "./pages/auth/Signup";
 import Login from "./pages/auth/Login";
-import Forgotpassword  from "./pages/auth/Forgotpassword";
+import Forgotpassword from "./pages/auth/Forgotpassword";
 import Dashboard from "./pages/user/Dashboard";
 import PrivateRoute from "./components/Routes/Private";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
@@ -23,6 +23,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Categories from "./pages/Categories";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPages from "./pages/CartPages";
+import AdminOrders from "./pages/Admin/AdminOrders";
 // import { ToastContainer, toast } from 'react-toast';
 // import React from 'react';
 // import Header from './components/layout/Header';
@@ -30,37 +31,37 @@ import CartPages from "./pages/CartPages";
 // import Layout from "./components/layout/Layout";
 function App() {
   return (
-   <>
-   <Routes>
-    <Route path ='/' element={<Homepage />} />
-    <Route path ='/product/:slug' element={<ProductDetails />} />
-    <Route path ='/categories' element={<Categories />} />
-    <Route path ='/cart' element={<CartPages />} />
-    <Route path ='/category/:slug' element={<CategoryProduct />} />
-    <Route path ='/search' element={<Search />} />
-    <Route path ="/dashboard" element={<PrivateRoute />}>
-    <Route path ="user" element={<Dashboard />} />
-    <Route path ="user/orders" element={<Orders />} />
-    <Route path ="user/profile" element={<Profile />} />
-    </Route>
-    <Route path = "/dashboard" element={<AdminRoute /> }>
-    <Route path="admin" element={<AdminDashboard />} />
-    <Route path="admin/create-category" element={<CreateCategory />} />
-    <Route path="admin/create-product" element={<CreateProduct />} />
-    <Route path="admin/product/:slug" element={<UpdateProduct />} />
-    <Route path = "admin/products" element={<Products />} />
-    <Route path ="admin/users" element ={<User />} />
-    </Route>
-    <Route path='/forgot-password' element={<Forgotpassword />} />
-    <Route path='/about' element={<About />} />
-    <Route path='/contact' element={<Contact />} />
-    <Route path='/policies' element={<Policies />} />
-    <Route path='/*' element={<Pagenotfound />} />
-    <Route path="/signup" element={<Signup />}/>
-    <Route path="/login" element={<Login />}/>
-    
-   </Routes>
-   </>
+    <>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/cart" element={<CartPages />} />
+        <Route path="/category/:slug" element={<CategoryProduct />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="user" element={<Dashboard />} />
+          <Route path="user/orders" element={<Orders />} />
+          <Route path="user/profile" element={<Profile />} />
+        </Route>
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/create-category" element={<CreateCategory />} />
+          <Route path="admin/create-product" element={<CreateProduct />} />
+          <Route path="admin/product/:slug" element={<UpdateProduct />} />
+          <Route path="admin/products" element={<Products />} />
+          <Route path="admin/users" element={<User />} />
+          <Route path="admin/orders" element={<AdminOrders />} />
+        </Route>
+        <Route path="/forgot-password" element={<Forgotpassword />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/policies" element={<Policies />} />
+        <Route path="/*" element={<Pagenotfound />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
   );
 }
 

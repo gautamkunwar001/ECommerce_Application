@@ -2,7 +2,7 @@
   "name": "client",
   "proxy": "http://localhost:8080",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,7 @@
   "dependencies": {
     "antd": "^5.24.2",
     "axios": "^1.7.9",
-    "braintree-web-drop-in-react": "^1.2.1",
+    "braintree-web-drop-in-react": "^1.0.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
